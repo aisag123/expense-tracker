@@ -1,0 +1,6 @@
+.container-fluid #totalExpenses {
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 0.5;
+    border-color: blue;
+}
