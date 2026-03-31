@@ -1,1 +1,33 @@
-<p>add-expense works!</p>
+<div class="container mt-4 w-50">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="text-center mb-4">Add Expense</h2>
+      <div class="mb-3">
+        <label class="form-label">Expense Name</label>
+        <input class="form-control" type="text" placeholder="Enter expense title" #expense />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Amount ($)</label>
+        <input class="form-control" type="number" placeholder="0" #amount />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Category</label>
+        <select class="form-select" #cat>
+          <option value disabled selected>Select Category</option>
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Grocery">Grocery</option>
+          <option value="Utilities">Utilities</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Travel">Travel</option>
+          <option value="Food">Food</option>
+        </select>
+      </div>
+      <div class="d-grid">
+        <button class="btn btn-primary" (click)="onAddExpence(expense, amount, cat)">
+          Add Expense
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

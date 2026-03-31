@@ -1,5 +1,6 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { computed, Injectable, input, signal } from '@angular/core';
 import { Expense } from '../models/expense';
+import { ExpenseCategory } from '../models/expense';
 
 @Injectable({
   providedIn: 'root',
@@ -49,8 +50,15 @@ export class ExpenseService {
     return sum/total;
   });
 
-  add() {
-
+  addExpense(name: string, amount: number, cat: ExpenseCategory) {
+    const newExpense: Expense = {
+      id: '1', //generate Id function 
+      title: name,
+      amount: amount,
+      category: cat
+    }
+    this.expenses.update(expenses => [...expenses, newExpense]);
+    console.log("expense: " + JSON.stringify(this.expenses()));
   }
 
   delete() {
