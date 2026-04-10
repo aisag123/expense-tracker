@@ -8,6 +8,6 @@ import { ExpenseService } from '../../services/expense-service';
   styleUrl: './dashboard.css',
 })
 export class Dashboard {
-expenceService = inject(ExpenseService);
+expenseService = inject(ExpenseService);
 
 }

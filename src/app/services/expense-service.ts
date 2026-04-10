@@ -52,24 +52,29 @@ export class ExpenseService {
 
   addExpense(name: string, amount: number, cat: ExpenseCategory) {
     const newExpense: Expense = {
-      id: '1', //generate Id function 
+      id: this.generateId(), //generate Id function 
       title: name,
       amount: amount,
       category: cat
     }
     this.expenses.update(expenses => [...expenses, newExpense]);
-    console.log("expense: " + JSON.stringify(this.expenses()));
   }
 
-  delete() {
-
+  delete(expenseId: string) {
+    this.expenses.update(expenses => expenses.filter(expense =>
+      expense.id != expenseId
+    ))
   }
 
-  edit() {
-
+  private generateId = () => {
+    return 'expence' + Date.now + '-' + Math.floor(Math.random() * 1000);
   }
 
-  getExpenseById() {
+  // edit() {
 
-  }
+  // }
+
+  // getExpenseById() {
+
+  // }
 }
